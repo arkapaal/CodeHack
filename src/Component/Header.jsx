@@ -14,9 +14,9 @@ export const Header= () => {
               width="600"
               height="400"
             />
-          </div>
 
-          {/* Right Section - Text Content */}
+          </div>
+          
           <div className="md:w-1/2 p-4">
             <h1 className="text-3xl font-bold mb-4">
               Level up your coding skills with live doubt-solving.
