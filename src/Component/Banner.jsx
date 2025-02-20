@@ -1,15 +1,37 @@
 import React from 'react';
+import { useState ,useEffect} from "react"
+
 // import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css';
 // import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap';
 
 export const Banner = () => {
+  const [activeLink,setActiveLink] =useState('ai');
+  const [scrolled,setScrolled]=useState(false);
+  useEffect(()=>{
+    const onScroll =()=>{
+        if(window.scrollY > 50){
+            setScrolled(true);
+        }else {
+            setScrolled(false);
+        }
+    }
+
+    window.addEventListener("scroll",onScroll);
+    return ()=>window.removeEventListener("scroll",onscroll)
+},[])
+  const onUpdateActiveLink =(value) =>{
+    setActiveLink(value);
+    
+  }
+  
+
   return (
     <div className="bg-black text-white" style={{ fontFamily: 'Inter, sans-serif' }}>
       <header className="flex justify-between items-center p-4">
         <div className="text-xl font-bold">CodeHack 10X</div>
         <nav className="space-x-4">
-          <a className="hover:underline" href="#">AI</a>
-          <a className="hover:underline" href="#">About</a>
+          <a className="hover:underline" href="#About ">About</a>
+          <a href="#Ai"  className={activeLink==='About'?'active navbar-link':'navbar-link'} onClick={()=> onUpdateActiveLink('Ai')}>AI</a>
           <a className="hover:underline" href="#">Support</a>
           <a className="hover:underline" href="#">Topics</a>
           <a href="https://discord.com/"><i className="fa-solid fa-coffee"></i></a>
@@ -31,7 +53,7 @@ export const Banner = () => {
           <h2 className="text-2xl font-bold mb-4">Hot Topics</h2>
           <ul className="space-y-2">
             <li className="hover:underline">
-              <a href="#">Understanding Async/Await</a>
+              <a href="https://vision.hack2skill.com/event/hackentinehackathon/dashboard/roadmap?utm_medium=url&utm_campaign=hackentinehackathon&utm_term=67ab9949d47021dc4340bb14">Hackathon,you should take part</a>
             </li>
             <li className="hover:underline">
               <a href="#">Mastering CSS Grid</a>

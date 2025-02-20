@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { getChatGPTResponse } from "./OpenAi";
+import { getChatGPTResponse } from "../OpenAi";
 
 
 function Body() {
@@ -15,6 +15,7 @@ function Body() {
     };
 
   return (
+    <section id="Ai">
     <div className="bg-black text-white min-h-screen flex justify-center items-center">
       <div className="w-full min-h-screen  p-8 bg-gradient-to-r bg-linear-to-r/longer from-indigo-500 to-teal-400 shadow-lg">
         <h1 className="text-center text-3xl font-bold mb-6">INSERT CODE SNIPPET</h1>
@@ -41,6 +42,7 @@ function Body() {
             </div>
       </div>
     </div>
+    </section>
   );
 };
 
